@@ -1,0 +1,269 @@
+%% LyX 2.2.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,english,british,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\pagestyle{plain}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{1}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage[numbers]{natbib}
+\onehalfspacing
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=true,bookmarksopenlevel=1,
+ breaklinks=true,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{pdftitle={Cloud Migration},
+ pdfauthor={Andrea Decorte},
+ pdfsubject={Cloud Computing},
+ pdfkeywords={cloud, SCE, migration, enterprise, IBM}}
+\usepackage{breakurl}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+  \theoremstyle{definition}
+  \newtheorem{defn}[thm]{\protect\definitionname}
+  \theoremstyle{remark}
+  \newtheorem{rem}[thm]{\protect\remarkname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\DeclareRobustCommand{\gobblefour}[5]{}
+\newcommand*{\SkipTocEntry}{\addtocontents{toc}{\gobblefour}}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage[geometry]{ifsym}
+\AtBeginDocument{\let\origref\ref
+   \renewcommand{\ref}[1]{(\origref{#1})}}
+\definecolor{Code}{rgb}{0.1,0.1,0.1}
+\definecolor{Decorators}{rgb}{0.7,0,0.7}
+\definecolor{Numbers}{rgb}{0.5,0,0}
+\definecolor{MatchingBrackets}{rgb}{0.25,0.5,0.5}
+\definecolor{Keywords}{rgb}{0,0,1}
+\definecolor{self}{rgb}{.87,.46,0}
+\definecolor{Strings}{rgb}{0,0.66,0}
+\definecolor{Comments}{rgb}{0.388,0.4705,0.518}
+\definecolor{Backquotes}{rgb}{0,0,0}
+\definecolor{Classname}{rgb}{0,0,0}
+\definecolor{FunctionName}{rgb}{0,0,0}
+\definecolor{Operators}{rgb}{0,0,0}
+\definecolor{Background}{rgb}{0.99,0.99,0.99}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\makeatother
+
+\usepackage{listings}
+\lstset{language=Python,
+frame=trBL,
+xleftmargin=3ex,
+xrightmargin=3ex,
+linewidth=15cm,
+framextopmargin=1em,
+framexbottommargin=1em,
+showspaces=false,
+showtabs=false,
+showstringspaces=false,
+tabsize=4,
+basicstyle={\ttfamily\tiny},
+backgroundcolor={\color{Background}},
+commentstyle={\color{Comments}\slshape},
+stringstyle={\color{Strings}},
+morecomment={[s][\color{Strings}]{"""}{"""}},
+morecomment={[s][\color{Strings}]{'''}{'''}},
+keywordstyle={\color{Keywords}\bfseries},
+keywordstyle={[2]\color{Decorators}},
+emph={self},
+emphstyle={\color{self}\slshape},
+moredelim={**[s][\bfseries]{class }{:}},
+moredelim={**[s][\bfseries]{def }{:}},
+moredelim={**[s][\mdseries]{(}{)}}}
+  \addto\captionsbritish{\renewcommand{\definitionname}{Definition}}
+  \addto\captionsbritish{\renewcommand{\remarkname}{Remark}}
+  \addto\captionsbritish{\renewcommand{\theoremname}{Theorem}}
+  \addto\captionsenglish{\renewcommand{\definitionname}{Definition}}
+  \addto\captionsenglish{\renewcommand{\remarkname}{Remark}}
+  \addto\captionsenglish{\renewcommand{\theoremname}{Theorem}}
+  \providecommand{\definitionname}{Definition}
+  \providecommand{\remarkname}{Remark}
+\addto\captionsbritish{\renewcommand{\lstlistingname}{Listing}}
+\addto\captionsenglish{\renewcommand{\lstlistingname}{Listing}}
+\providecommand{\theoremname}{Theorem}
+\renewcommand{\lstlistingname}{Listing}
+
+\begin{document}
+
+%%FRONT PAGE
+%\input{head/frontPage.tex}
+\input{head/frontPage-cr.tex}
+
+%%DEDICATION (the initial quote)
+\input{head/dedication}
+
+\pagebreak{}
+
+\thispagestyle{empty}
+
+\include{abstract}
+
+\pagebreak{}
+
+\pagenumbering{roman}
+
+\tableofcontents{}
+
+\pagebreak{}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\cleardoublepage
+
+\part*{Introduction}
+\noindent \begin{flushright}
+\textit{A less obvious type of application (of non-cooperative}\\
+\textit{ games) is to the study of cooperative games.}\\
+John Forbes Nash Jr.
+\par\end{flushright}
+
+Since 1950, the prisoner's dilemma was used as the ideal model to
+study the cooperative behaviours in a biological context. Its original
+formulation can be expressed as follows \citep{wiki}:
+
+\medskip{}
+
+\noindent \textit{}%
+\noindent\begin{minipage}[t]{1\columnwidth}%
+\noindent \textit{Two members of a criminal gang are arrested and
+imprisoned. Each prisoner is in solitary confinement with no means
+of communicating with the other. The prosecutors lack sufficient evidence
+to convict the pair on the principal charge, but they have enough
+to convict both on a lesser charge. Simultaneously, the prosecutors
+offer each prisoner a bargain. Each prisoner is given the opportunity
+either to betray the other by testifying that the other committed
+the crime, or to cooperate with the other by remaining silent. The
+possible outcomes are: }
+\begin{itemize}
+\item \textit{If only one of them betrays and the other remains silent;
+the former will be set free and the latter will serve 7 years in prison.}
+\item \textit{If both betray the other, each of them serves 6 years in prison.}
+\item \textit{If both remain silent, both of them will serve only 1 year
+in prison.}
+\end{itemize}
+%
+\end{minipage}
+
+\medskip{}
+
+In a formal way, we can define the prisoner's dilemma using the following
+payoff matrix:
+
+\[
+A=\left[\begin{array}{cc}
+\left(R,R\right) & \left(S,T\right)\\
+\left(T,S\right) & \left(P,P\right)
+\end{array}\right]
+\]
+
+Where in the above example, $R=-1$, $S=-7$, $T=0$ e $P=-6$. It
+can be shown that the properties of the game do not change if we choose
+$S=P=0$, $R=1$ e $T=b$, and being a symmetric game we can simplify:
+\[
+A=\left(\begin{array}{cc}
+1 & 0\\
+b & 0
+\end{array}\right)
+\]
+with $b\geq1$. 
+
+In 1973 the work of Maynard Smith and Price \citep{MaynardSmith1973}
+started the evolutionary game theory and in 1978 Taylor and Jonker
+\citep{TaylorJ78} wrote the replicator equation:
+\[
+\dot{p}_{\ell}=p_{\ell}\left[\mathbf{e}_{\ell}^{T}A\,\mathbf{p}-\mathbf{p}^{T}A\,\mathbf{p}\right]
+\]
+where $p_{\ell}$ is the frequency of strategy $\ell$; $\mathbf{e}_{\ell}^{T}A\,\mathbf{p}$
+is the payoff of the focal player playing the strategy $\ell$ against
+the population playing the mixed strategy $\mathbf{p}$; $\mathbf{p}^{T}A\,\mathbf{p}$
+is the payoff of the focal player playing the same mixed strategy
+$\mathbf{p}$ of the population. 
+
+In the last three decades, the spatial version of the evolutionary
+game has been extensively studied and now there are several models
+(not always coherent with each other). 
+
+In this work, we will study four of these models and proceed as follows:
+\begin{enumerate}
+\item In the first chapter we will study and solve numerically two continuous
+models:
+\begin{enumerate}
+\item In 1989, Vickers \citep{vickers_spatial_1989} wrote a reaction-diffusion
+equation describing a spatial dynamics of the game:
+\[
+\frac{\partial n_{\ell}}{\partial t}=n_{\ell}\left[\frac{\mathbf{e}_{\ell}^{T}A\,\mathbf{n}}{N}-\frac{\mathbf{n}^{T}A\,\mathbf{n}}{N^{2}}\right]+D_{\ell}\nabla^{2}n_{\ell}\qquad\ell=1,2
+\]
+ where $N\left(\mathbf{x},t\right)=\sum_{\ell=1}^{n}n_{\ell}$ is
+the total density, $D_{\ell}$ is the diffusion coefficient for $\ell-th$
+strategy and $n_{\ell}$ is the number density per unit area of agents
+using strategy $\ell$.
+\item In 2010, Amadori, Boccabella and Natalini \citep{amadori_one_2010,amadori_hyperbolic_2011}
+proposed a different equation, that corrected the infinite speed admitted
+by the above equation:
+\[
+\begin{cases}
+\frac{\partial n_{\ell}}{\partial t} & =-\bm{\nabla}\cdot\bm{\omega}_{\ell}+n_{\ell}\left[\frac{\mathbf{e_{\ell}}^{T}A\,\mathbf{n}}{N}-\frac{\mathbf{n}^{T}A\,\mathbf{n}}{N^{2}}\right]\\
+\tau\frac{\partial\bm{\omega}_{\ell}}{\partial t} & =-\lambda_{\ell}^{2}\bm{\nabla}n_{\ell}-\bm{\omega}_{\ell}
+\end{cases}\qquad\ell=1,2
+\]
+where $\bm{\omega}_{\ell}$ is the flux vector of the population $\ell$,
+$\tau$ is the relaxation time and $\lambda_{\ell}^{2}$ is correlated
+to diffusion coefficient.
+\end{enumerate}
+\item In the second chapter we will propose a discrete spatial version of
+the replicator equation \citep{hofbauer_game_nodate}.
+\item In the third chapter we shall study the model of Durrett \citep{durrett_spatial_2014,cox_voter_2011},
+who showed that spatial games on lattices can be written as a perturbed
+voter model and that they converge to the solutions of a reaction-diffusion
+replicator equation of a modified game.
+\end{enumerate}
+In the first three models we simply observe that there is no survival
+of cooperators and that the number of individuals decreases until
+the extinction, but in the discrete one the speed of extinction is
+the slowest. The simulation of the fourth model in $2D$ gives us
+a complete consensus, or rather we observe no coexistence of cooperators
+and defectors.
+
+\include{Cap1}\include{Cap2}\include{Cap3}
+
+\include{Conclusion}
+
+\include{Appendix}
+
+\listoffigures
+
+\bibliographystyle{plain}
+\bibliography{bibliografia}
+
+\end{document}

@@ -1,0 +1,91 @@
+
+\part*{Conclusions}
+\noindent \begin{flushright}
+\textit{Not only in research, but also in the everyday world}\\
+\textit{ of politics and economics, we would all be better off}\\
+\textit{ if more people realised that simple nonlinear systems}\\
+\textit{ do not necessarily possess simple dynamical properties.}\\
+Robert May
+\par\end{flushright}
+
+We studied the evolution of different populations that are in the
+same environment, using evolutionary game theory. We investigated
+the prisoner's dilemma, where the population is composed by the cooperators
+which are friendly and the defectors which are hostile. The payoff
+matrix for our game is:
+\[
+\left(\begin{array}{cc}
+1 & 0\\
+b & 0
+\end{array}\right)
+\]
+Our main interest was about the survival of cooperators, which is
+impossible in classical game theory (i.e. in in the spatially homogeneous
+case) as observed in Nowak's works (e.g. \cite{nowak_evolutionary_1992,nowak_more_1994,nowak_spatial_1993,nowak_spatial_1994}).
+So, in this work we studied and compared four models of evolutionary
+games that consider spatial effects. 
+\begin{enumerate}
+\item The first model is a reaction diffusion equation, proposed by Vickers
+\cite{vickers_spatial_1989}, for $\ell=1,\,2$:
+\[
+\frac{\partial n_{\ell}}{\partial t}=n_{\ell}\left[\frac{\mathbf{e}_{\ell}^{T}A\,\mathbf{n}}{N}-\frac{\mathbf{n}^{T}A\,\mathbf{n}}{N^{2}}\right]+D_{\ell}\nabla^{2}n_{\ell}
+\]
+where the reaction term is the replicator dynamic and $D_{\ell}$is
+an arbitrary constant. The central assumption of diffusive movement
+involves that the individuals move with infinite velocity. This does
+not mean that diffusion models are completely inappropriate rather,
+it only means that these models are more accurate in long time frame
+predictions. For example several diffusion models are used for distributions
+of insects in the atmosphere, for homing and migration of birds and
+fishes, or even for some mammals migration (for more details \cite{murray1,murray2,Okubo_Levin}).
+In our simulations we merely observe that there is no survival of
+cooperators, i.e. the evolutionarily stable strategy does not change
+considering spatial effect. Moreover, as verification through the
+phase diagram we simply observe a phase transition in $b=1$.
+\item The second model, in practice, is a correction to the first model.
+It is a continuous finite propagation speed model for population dynamics,
+based on a hyperbolic Cattaneo dynamics for the flux function. This
+model is a midway between the multi agent system and the continuous
+reaction-diffusion models, i.e. for $\ell=1,\,2$:
+\[
+\begin{cases}
+\frac{\partial n_{\ell}}{\partial t} & =-\left(\frac{\partial\varphi_{\ell}}{\partial x}+\frac{\partial\psi_{\ell}}{\partial y}\right)+n_{\ell}\left[\frac{\mathbf{e_{\ell}}^{T}A\,\mathbf{n}}{N}-\frac{\mathbf{n}^{T}A\,\mathbf{n}}{N^{2}}\right]\\
+\tau\frac{\partial\varphi_{\ell}}{\partial t} & =-\lambda_{\ell}^{2}\frac{\partial n_{\ell}}{\partial x}-\varphi_{\ell}\\
+\tau\frac{\partial\psi_{\ell}}{\partial t} & =-\lambda_{\ell}^{2}\frac{\partial n_{\ell}}{\partial y}-\psi_{\ell}
+\end{cases}
+\]
+where $\tau$ is the relaxation time, $\lambda_{\ell}$ is related
+to the dispersal rate, $\varphi_{\ell}$ is the flux along $x$ and
+$\psi_{\ell}$ the one along $y$. In our simulations there is no
+survival of cooperators. So requiring a finite speed of diffusion
+is not enough to have the same results of Nowak's models.
+\item In the second chapter, we proposed a discrete model. We assume that
+the agents move randomly on a square 2D lattice under the effect of
+a drift term due to the discrete replicator equation, for $\ell=1,\,2$:
+\begin{align*}
+n_{\ell}^{k+1}(x) & =\frac{1}{2m}\sum_{y\in U(x)}\mathcal{L}_{xy}n_{\ell}^{k}\left(y\right)+n_{\ell}^{k}\left(x\right)\frac{c+\frac{{\bf e}_{\ell}\cdot A{\bf n}^{k}\left(x\right)}{N^{k}\left(x\right)}}{c+\frac{{\bf n}^{k}\left(x\right)\cdot A{\bf n}^{k}\left(x\right)}{\left(N^{k}\left(x\right)\right)^{2}}}
+\end{align*}
+The results are similar to the previous models, but now the number
+of cooperators and defectors decreases at a slower speed. This is
+an interesting results, because we made no hypothesis and no requirement
+on the dispersal speed. 
+\item In the last model we considered the games as a a perturbed voter model.
+In \cite{durrett_spatial_2014,cox_voter_2011}, they showed that the
+evolution of these games convergences to solutions of a reaction diffusion
+equation (RDE), for $i=1,\,2$:
+\[
+\frac{\partial u_{i}\left(x,t\right)}{\partial t}=\frac{1}{\kappa}\Delta u_{i}\left(x,t\right)+p\left(0\mid v_{1}\mid v_{1}+v_{2}\right)\phi_{i}\left(u\right)
+\]
+where $\kappa$ is the number of neighbours and $\phi_{i}\left(u\right)$
+is the replicator equation for the modified game with a payoff matrix:
+\[
+\left(\begin{array}{cc}
+1 & \frac{1}{\kappa-2}\left(1-b\right)\\
+b-\frac{1}{\kappa-2}\left(1-b\right) & 0
+\end{array}\right)
+\]
+We simulate the equation in $2D$ and, as we expect, we observe a
+complete consensus, or rather we observe no coexistence of cooperators
+and defectors.
+\end{enumerate}
+
